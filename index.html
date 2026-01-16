@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>Clipo - クリックポスト伝票印刷</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000"><link rel="apple-touch-icon" sizes="180x180" href="/clipo/apple-touch-icon.png" id="apple-touch-icon-png"><link rel="manifest" href="/clipo/manifest.json" id="manifest-json" crossorigin="use-credentials"><script type="text/javascript" src="/clipo/build/pdf.js"></script>
+<script type="text/javascript">
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/build/pdf.worker.js';
+</script>
+<script type="text/javascript" src="/clipo/script.js" id="script-js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="/clipo/fonts.css" id="fonts-css">
+<link rel="stylesheet" href="/clipo/style.css" id="style-css">
+<link rel="stylesheet" href="/clipo/print.css" id="print-css" media="print"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/bizudgothic/v12/daafSTouBF7RUjnbt8p3LuKttQ.ttf" crossorigin="anonymous">
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/bizudpgothic/v14/hES36X5pHAIBjmS84VL0Bue83nU.ttf" crossorigin="anonymous">
+<!--PWA-FACTORY.COM-->
+<!--ADD THE FILES IN YOUR ROOT FOLDER & INCLUDE THIS IN YOUR HTML HEAD-->
+<link rel=manifest href=manifest.json>
+<script>
+if (serviceWorker in navigator) {
+window.addEventListener(load, () => {
+navigator.serviceWorker.register(service-worker.js).then(function(registration) {
+console.log(ServiceWorker registered);
+}).catch(function(err) {
+console.log(ServiceWorker error: , err);
+});
+})
+}
+</script>    
+<!--PWA-FACTORY.COM-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body class="home blog">
+<div id="wrapper">
+<header id="header" role="banner">
+<aside class="external-link">
+<a href="https://clickpost.jp/" target="_blank">〒</a>
+</aside>
+<nav><span id="current-file"></span>&nbsp;(<span id="file-counter">0</span>)</nav>
+<aside class="hamburger-menu">
+<label for="menu-toggle">
+<i class="fa-solid fa-bars"></i>
+</label>
+</aside>
+<input type="checkbox" id="menu-toggle">
+<ul class="menu">
+<li><a href="#" onclick="print()"><i class="fa-solid fa-print"></i>印刷</a></li>
+<li><a href="#" onclick="clearPDF()"><i class="fa-solid fa-trash"></i>すべて削除</a></li>
+<li><a href="#" onclick="showHelp()"><i class="fa-solid fa-question-circle"></i>ヘルプ</a></li>
+</ul>
+</header>
+<div id="container">
+<main id="content" role="main">
+<form>
+<canvas width="2480" height="3508"></canvas>
+<label for="input-1">
+<input id="input-1" type="file" accept="application/pdf" onchange="inputPDF.call(this)">
+<div class="dropzone">
+<i class="fa-duotone fa-solid fa-file-pdf"></i>
+</div>
+</label>
+</form>
+<form>
+<canvas width="2480" height="3508"></canvas>
+<label for="input-2">
+<input id="input-2" type="file" accept="application/pdf" onchange="inputPDF.call(this)">
+<div class="dropzone">
+<i class="fa-duotone fa-solid fa-file-pdf"></i>
+</div>
+</label>
+</form>
+<form>
+<canvas width="2480" height="3508"></canvas>
+<label for="input-3">
+<input id="input-3" type="file" accept="application/pdf" onchange="inputPDF.call(this)">
+<div class="dropzone">
+<i class="fa-duotone fa-solid fa-file-pdf"></i>
+</div>
+</label>
+</form>
+<form>
+<canvas width="2480" height="3508"></canvas>
+<label for="input-4">
+<input id="input-4" type="file" accept="application/pdf" onchange="inputPDF.call(this)">
+<div class="dropzone">
+<i class="fa-duotone fa-solid fa-file-pdf"></i>
+</div>
+</label>
+</form>
+</main>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="copyright">
+&copy; 2025 Clipo</div>
+</footer>
+</div>
+<script type="text/javascript" src="/clipo/dialog.js" id="dialog-js"></script>
+</body>
+</html>

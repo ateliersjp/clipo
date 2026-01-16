@@ -1,0 +1,208 @@
+/*
+Theme Name: clipo.jp
+Theme URI: https://github.com/ateliersjp/clipo.jp
+Author: Ateliers JP
+Author URI: https://github.com/ateliersjp/clipo.jp
+Description: A tool to print shipping labels for JP ClickPost.
+Tags: accessibility-ready, one-column, two-columns, custom-menu, featured-images, microformats, sticky-post, threaded-comments, translation-ready
+Version: 2024.2
+Requires at least: 5.2
+Tested up to: 6.5
+Requires PHP: 7.4
+License: GNU General Public License v3 or Later
+License URI: https://www.gnu.org/licenses/gpl.html
+Text Domain: clipo.jp
+
+clipo.jp WordPress Theme 2011-2024
+clipo.jp is distributed under the terms of the GNU GPL
+*/
+
+html,
+body {
+    font: 16px 'MS PGothic', sans-serif;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: #ccc;
+}
+
+#header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 2em;
+    background-color: #eee;
+}
+
+#header aside {
+    position: relative;
+    width: 2em;
+    height: 2em;
+}
+
+#header nav {
+    flex: 1;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.5em;
+    line-height: 1em;
+}
+
+#header nav #current-file:empty:before {
+    content: '選択されていません';
+}
+
+#menu-toggle {
+    display: none;
+}
+
+#header aside.hamburger-menu label,
+#header aside.external-link a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#header aside.hamburger-menu label {
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+#header aside.external-link a,
+#header aside.external-link a:visited,
+#header aside.external-link a:hover,
+#header aside.external-link a:active {
+    transform: translateX(-25%);
+    border-radius: 0.5em;
+    background-color: #c01;
+    color: #fff;
+    text-decoration: none;
+}
+
+#menu-toggle + ul {
+    display: none;
+    position: absolute;
+    top: 2em;
+    right: 0;
+    z-index: 9999;
+}
+
+#menu-toggle:checked + ul {
+    display: block;
+    list-style-type: none;
+    padding: 0;
+}
+
+#menu-toggle + ul li {
+    padding: 0.5em;
+    line-height: 1em;
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+}
+
+#menu-toggle + ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+#menu-toggle + ul li a i {
+    margin-right: 0.5em;
+}
+
+#container {
+    contain: strict;
+    flex: 1;
+    max-width: 100%;
+    aspect-ratio: 210 / 297;
+    margin: 0 auto;
+}
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.5em;
+}
+
+#content form {
+    position: relative;
+    width: 50%;
+    aspect-ratio: 210 / 297;
+    overflow: clip;
+}
+
+#content form input[type="file"] {
+    display: none;
+}
+
+#content form label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 0.5em;
+    opacity: 1;
+}
+
+#content form.selected label {
+    opacity: 0;
+}
+
+#content form.selected:active label {
+    opacity: 1;
+}
+
+#content form label .dropzone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+#content form canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+}
+
+#footer {
+    width: 100%;
+    height: 2em;
+    background-color: #eee;
+}
+
+#footer #copyright {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.5em;
+    line-height: 1em;
+}
